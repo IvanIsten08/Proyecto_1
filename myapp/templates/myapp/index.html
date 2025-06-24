@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My pryecto Inicial</title>
-</head>
-<body>
-    <h1>Hola, este es mi proyecto inicial.</h1>
-    <p>{{ mensaje }}</p>
-</body>
-</html>
+{%  extends 'myapp/base.html' %} 
+
+{% block tittle %}Inicio - My proyecto{% endblock tittle %}
+
+{% block content %}
+    <h1>Inicio</h1>
+
+<nav>
+    <a href="{% url 'myapp:index' %}">buscar</a>
+    <a href="{% url 'myapp:index' %}">about</a>
+</nav>
+
+<h2>Informacion</h2>
+<p>{{ mensaje }}</p>
+
+<h2>Fecha de hoy</h2>
+<p>{{ time_actual }}</p>
+
+
+{% endblock content %}
