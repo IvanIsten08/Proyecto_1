@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Producto, Categoria, Usuario, Pedido
 
 # Create your views here.
 def index(request):
@@ -10,3 +11,25 @@ def index(request):
     }
     return render(request, "myapp/index.html", context=contexto)
     
+
+def lista_productos(request):
+    productos = Producto.objects.all()
+    contexto = {
+        "productos": productos
+    }
+    return render(request, "myapp/lista_productos.html", context=contexto)
+
+def lista_categorias(request):
+    categorias = Categoria.objects.all()
+    contexto = {
+        "categorias": categorias
+    }
+    return render(request, "myapp/lista_categorias.html", context=contexto)
+
+def lista_pedidos(request):
+    pedidos = Pedido.objects.all()
+    contexto = {
+        "pedidos": pedidos
+    }
+    return render(request, "myapp/lista_pedidos.html", context=contexto)
+
